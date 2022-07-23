@@ -3,9 +3,9 @@
 .container 
     
     position: relative
-    border: solid $border-color
+    
     border-radius: 10px
-    background-color: $widgets-color
+    
     margin: 10px
     padding: 18px
     display: flex
@@ -13,3 +13,42 @@
     justify-items: center
     top: 13px
 
+
+.card
+    position: relative
+    border: solid $main-bg-color
+    border-radius: 25px
+    border-width: 4px
+    text-align: center
+    background-color: $widgets-color
+    p
+        
+        margin: 30px
+    img
+        position: sticky
+        border-radius: 20px 20px 0px 0px
+    .cardTitle
+        background-color: $widgets-color
+        border: solid
+        border-radius: 9px
+        position: absolute
+        bottom: 55px
+        left: 10px
+        font-size: 70px
+        padding: 5px
+        color: $font-color
+    .answerButton
+        bottom: 15px
+        padding: 8px
+        text-decoration: none
+        border: solid $font-color
+        border-radius: 7px
+        width: 10px
+        height: 30%
+        font-size: 40px
+        background-color: $bg-color
+        color: $widgets-color
+        
+        &:hover
+            background-color: $main-bg-color
+        
