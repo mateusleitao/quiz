@@ -5,8 +5,9 @@
     position: relative
     
     border-radius: 10px
+    width: 100%
     
-    margin: 10px
+    
     padding: 18px
     display: flex
     justify-content: center
@@ -26,7 +27,9 @@
         margin: 30px
     img
         position: sticky
+        width: 100%
         border-radius: 20px 20px 0px 0px
+        
     .cardTitle
         background-color: $widgets-color
         border: solid
@@ -37,6 +40,10 @@
         font-size: 70px
         padding: 5px
         color: $font-color
+        @media screen and (max-width: 740px) 
+            font-size: 30px 
+            bottom: 65px
+        
     .answerButton
         bottom: 15px
         padding: 8px
@@ -48,7 +55,12 @@
         font-size: 40px
         background-color: $bg-color
         color: $widgets-color
-        
+    
+
         &:hover
             background-color: $main-bg-color
+    
         
+
+
+    
