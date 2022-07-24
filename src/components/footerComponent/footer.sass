@@ -3,17 +3,24 @@
 .footer-container
     display: flex
     text-align: center
-    position: fixed
-    bottom: 0px
-    width: 100%
+    position: relative
+   
     justify-content: center
     justify-items: center
-    background-color: $main-bg-color
+    bottom: 0px
+    @media screen and (max-width: 913px) 
+            margin-top: 15%
+            font-size: 30px 
+            bottom: 0px
+    
     .container-inside
-        color: $font-color
+        height: 80px
+        width: 100%
+        position: absolute
+        color: $widgets-color
         h3
             font-size: 25px
             font-family: $main-font
             a
                 text-decoration-color: $widgets-color
-                color: $font-color
+                color: $main-bg-color

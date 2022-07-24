@@ -15,8 +15,7 @@ const Quiz = (props: Props) => {
           <h2 className="cardTitle">Web Development</h2>
           <p></p>
           <a href="#" className="answerButton">Answer</a>
-        </div>
-        
+        </div>  
       </div>
     </div>
   );
