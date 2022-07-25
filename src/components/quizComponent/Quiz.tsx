@@ -9,22 +9,25 @@ type Props = {
 };
 
 const Quiz = (props: Props) => {
+  const parent = {
+    variantA: { scale: 1 },
+    variantB: { scale: 1.25}
+  }
   return (
-    <motion.div className="container"
-     initial={{opacity:0}}
-     animate={{opacity:1}}
-     exit={{opacity:0}}
-    >
+    <div className="container">
       <div className="quiz-grid">
         <div className="card">
           <img src={cardImg}alt="cardImage" width="900px"/>
           <h2 className="cardTitle">Web Development</h2>
           <p></p>
-          <Link to="/b"className="answerButton">Answer</Link>
-        </div>  
+          <Link to="/quiz/b"className="answerButton">Answer</Link>
+        </div>
+        <div>
+        </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
+
 
 export default Quiz;

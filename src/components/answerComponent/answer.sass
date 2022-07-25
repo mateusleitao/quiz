@@ -1,0 +1,27 @@
+@import "../../assets/sass/variables"
+
+.quiz
+    display: grid
+    grid-template-columns: 1fr 1fr
+    grid-template-rows: 100px 100px
+    background-color: $main-bg-color   
+    padding: 10px
+    border-radius: 10px
+
+
+.card
+    .quizTitle
+        color: $font-color
+        text-decoration: underline
+    &-quiz
+        padding: 30px
+        button
+            border-radius: 10px
+            border: solid $font-color
+            background-color: $widgets-color
+            margin: 4px
+            font-family: $main-font
+            font-weight: bold
+            font-size: 18px
+            color: $font-color
+            cursor: pointer
