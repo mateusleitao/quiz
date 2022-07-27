@@ -45,7 +45,7 @@ const AnswerComponent = () => {
 
   useEffect(() => {
     setSelectedAsk(askAndAnswer[selectAsk].text);
-    setAnswerInBlock(answersInBlock)
+    setAnswerInBlock(answersArray[selectAsk])
   });
   const answer = () => {
     setSelectAsk(selectAsk + 1);
