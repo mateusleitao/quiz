@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import "./answer.sass";
 
-type Props = {};
 
-const AnswerComponent = (props: Props) => {
+const AnswerComponent = () => {
   const askAndAnswer: { text: string; answer: string[] }[] = [
     {
-      text: "aWhat does HTML stand for?",
+      text: "What does HTML stand for?",
       answer: [
         "A - Hyper Tag Markup Language",
         "B - Hyper Text Markup Language",
@@ -47,6 +45,7 @@ const AnswerComponent = (props: Props) => {
 
   useEffect(() => {
     setSelectedAsk(askAndAnswer[selectAsk].text);
+    setAnswerInBlock(answersInBlock)
   });
   const answer = () => {
     setSelectAsk(selectAsk + 1);
@@ -54,6 +53,11 @@ const AnswerComponent = (props: Props) => {
 
   const [selectedAsk, setSelectedAsk] = useState(askAndAnswer[selectAsk].text);
 
+  let answersArray = askAndAnswer.map(function(answersArray) {
+    return answersArray.answer
+  })
+  const [answersInBlock, setAnswerInBlock] = useState(answersArray[selectAsk])
+  console.log(answersInBlock)
   console.log(selectAsk);
   return (
     <motion.div
@@ -64,14 +68,13 @@ const AnswerComponent = (props: Props) => {
     >
       <div className="card card-quiz">
         <h2 className="quizTitle">{selectedAsk}</h2>
-        {/* <h3 className="ask">Pergunta</h3> */}
         <main className="quiz">
           <button className="answer" onClick={answer}>
-            Answer
+            {answersInBlock[0]}
           </button>
-          <button className="answer">Answer</button>
-          <button className="answer">Answer</button>
-          <button className="answer">Answer</button>
+          <button onClick={answer} className="answer">{answersInBlock[1]}</button>
+          <button onClick={answer} className="answer">{answersInBlock[2]}</button>
+          <button onClick={answer} className="answer">{answersInBlock[3]}</button>
         </main>
       </div>
     </motion.div>
