@@ -4,6 +4,9 @@ import "./answer.sass";
 
 
 const AnswerComponent = () => {
+
+  const [showScore, setShowScore] = useState(false)
+
   const askAndAnswer: { text: string; answer: string[] }[] = [
     {
       text: "What does HTML stand for?",
@@ -57,8 +60,6 @@ const AnswerComponent = () => {
     return answersArray.answer
   })
   const [answersInBlock, setAnswerInBlock] = useState(answersArray[selectAsk])
-  console.log(answersInBlock)
-  console.log(selectAsk);
   return (
     <motion.div
       className="container"
