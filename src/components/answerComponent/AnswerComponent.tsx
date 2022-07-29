@@ -8,7 +8,10 @@ import "./answer.sass";
 const AnswerComponent = () => {
 
   const [questionIndex, setQuestionIndex] = useState(0)
-  const [ask, setAsk] = useState("Title")
+  const [ask, setAsk] = useState("")
+  const [answers, setAnswers] = useState([""])
+  const [scorePoints, setScorePoints] = useState(0)
+
 
   const asksAndAnswers: { ask: string; answer: string[] }[] = [
     {
@@ -48,14 +51,32 @@ const AnswerComponent = () => {
     },
   ];
 
+  function answerTheQuestion(e: React.MouseEvent<HTMLElement>) {
+    setQuestionIndex(questionIndex + 1)
+    const answerButtonClick = (e.target as HTMLButtonElement).textContent
+    if (answerButtonClick == String(asksAndAnswers[0].answer[1])) {
+      setScorePoints(scorePoints + 1)
+    } else if (answerButtonClick === String(asksAndAnswers[1].answer[1])) {
+      setScorePoints(scorePoints + 1)
+    } else if (answerButtonClick === String(asksAndAnswers[2].answer[3])) {
+      setScorePoints(scorePoints + 1)
+    } else if (answerButtonClick === String(asksAndAnswers[3].answer[3])) {
+      setScorePoints(scorePoints + 1)
+    } else if (answerButtonClick === String(asksAndAnswers[4].answer[2])) {
+      setScorePoints(scorePoints + 1)
+    }
+  }
+
   useEffect(() => {
     setAsk(asksAndAnswers[questionIndex].ask)
   }, [questionIndex])
 
+  useEffect(() => {
+    setAnswers(asksAndAnswers[questionIndex].answer)
+  }, [questionIndex])
 
 
-
-
+  console.log(scorePoints)
 
   return (
     <motion.div
@@ -67,10 +88,10 @@ const AnswerComponent = () => {
       <div className="card card-quiz">
         <h2 className="quizTitle">{ask}</h2>
         <main className="quiz">
-          <button onClick={() => { setQuestionIndex(questionIndex + 1) }} className="answer"></button>
-          <button className="answer"></button>
-          <button className="answer"></button>
-          <button className="answer"></button>
+          <button onClick={answerTheQuestion} className="answer">{answers[0]}</button>
+          <button onClick={answerTheQuestion} className="answer">{answers[1]}</button>
+          <button onClick={answerTheQuestion} className="answer">{answers[2]}</button>
+          <button onClick={answerTheQuestion} className="answer">{answers[3]}</button>
         </main>
       </div>
     </motion.div>
