@@ -3,6 +3,8 @@ import { motion } from "framer-motion";
 import "./answer.sass";
 
 
+
+
 const AnswerComponent = () => {
 
   const [showScore, setShowScore] = useState(false)
@@ -54,8 +56,8 @@ const AnswerComponent = () => {
     setSelectAsk(selectAsk + 1);
   };
 
-  const [selectedAsk, setSelectedAsk] = useState(askAndAnswer[selectAsk].text);
 
+  const [selectedAsk, setSelectedAsk] = useState(askAndAnswer[selectAsk].text);
   let answersArray = askAndAnswer.map(function(answersArray) {
     return answersArray.answer
   })
@@ -67,6 +69,8 @@ const AnswerComponent = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 1 }}
     >
+      <div>
+      </div>
       <div className="card card-quiz">
         <h2 className="quizTitle">{selectedAsk}</h2>
         <main className="quiz">
