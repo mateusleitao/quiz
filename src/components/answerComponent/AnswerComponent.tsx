@@ -7,11 +7,12 @@ import "./answer.sass";
 
 const AnswerComponent = () => {
 
-  const [showScore, setShowScore] = useState(false)
+  const [questionIndex, setQuestionIndex] = useState(0)
+  const [ask, setAsk] = useState("Title")
 
-  const askAndAnswer: { text: string; answer: string[] }[] = [
+  const asksAndAnswers: { ask: string; answer: string[] }[] = [
     {
-      text: "What does HTML stand for?",
+      ask: "What does HTML stand for?",
       answer: [
         "A - Hyper Tag Markup Language",
         "B - Hyper Text Markup Language",
@@ -20,7 +21,7 @@ const AnswerComponent = () => {
       ],
     },
     {
-      text: "What symbol indicates a tag?",
+      ask: "What symbol indicates a tag?",
       answer: [
         "A - Angle brackets e.g.",
         "B - Curved brackets e.g. {,}",
@@ -29,15 +30,15 @@ const AnswerComponent = () => {
       ],
     },
     {
-      text: "Which of these is a genuine tag keyword?",
+      ask: "Which of these is a genuine tag keyword?",
       answer: ["A - Header", "B - Bold", "C - Body", "D - Image"],
     },
     {
-      text: "What is the correct tag for a line break?",
+      ask: "What is the correct tag for a line break?",
       answer: ['A - "brk /"', 'B - "line /"', 'C - "bk /"', 'D - "br /"'],
     },
     {
-      text: "What does CSS stand for?",
+      ask: "What does CSS stand for?",
       answer: [
         "A - Computing Style Sheet",
         "B - Creative Style System",
@@ -46,6 +47,16 @@ const AnswerComponent = () => {
       ],
     },
   ];
+
+  useEffect(() => {
+    setAsk(asksAndAnswers[questionIndex].ask)
+  }, [questionIndex])
+
+
+
+
+
+
   return (
     <motion.div
       className="container"
@@ -54,9 +65,9 @@ const AnswerComponent = () => {
       exit={{ opacity: 1 }}
     >
       <div className="card card-quiz">
-        <h2 className="quizTitle">{}</h2>
+        <h2 className="quizTitle">{ask}</h2>
         <main className="quiz">
-          <button className="answer"></button>
+          <button onClick={() => { setQuestionIndex(questionIndex + 1) }} className="answer"></button>
           <button className="answer"></button>
           <button className="answer"></button>
           <button className="answer"></button>
