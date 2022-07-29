@@ -46,22 +46,6 @@ const AnswerComponent = () => {
       ],
     },
   ];
-  const [selectAsk, setSelectAsk] = useState(0);
-
-  useEffect(() => {
-    setSelectedAsk(askAndAnswer[selectAsk].text);
-    setAnswerInBlock(answersArray[selectAsk])
-  });
-  const answer = () => {
-    setSelectAsk(selectAsk + 1);
-  };
-
-
-  const [selectedAsk, setSelectedAsk] = useState(askAndAnswer[selectAsk].text);
-  let answersArray = askAndAnswer.map(function(answersArray) {
-    return answersArray.answer
-  })
-  const [answersInBlock, setAnswerInBlock] = useState(answersArray[selectAsk])
   return (
     <motion.div
       className="container"
@@ -69,17 +53,13 @@ const AnswerComponent = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 1 }}
     >
-      <div>
-      </div>
       <div className="card card-quiz">
-        <h2 className="quizTitle">{selectedAsk}</h2>
+        <h2 className="quizTitle">{}</h2>
         <main className="quiz">
-          <button className="answer" onClick={answer}>
-            {answersInBlock[0]}
-          </button>
-          <button onClick={answer} className="answer">{answersInBlock[1]}</button>
-          <button onClick={answer} className="answer">{answersInBlock[2]}</button>
-          <button onClick={answer} className="answer">{answersInBlock[3]}</button>
+          <button className="answer"></button>
+          <button className="answer"></button>
+          <button className="answer"></button>
+          <button className="answer"></button>
         </main>
       </div>
     </motion.div>
