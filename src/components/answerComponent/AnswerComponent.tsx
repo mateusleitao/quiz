@@ -11,7 +11,7 @@ const AnswerComponent = () => {
   const [ask, setAsk] = useState("")
   const [answers, setAnswers] = useState([""])
   const [scorePoints, setScorePoints] = useState(0)
-
+  const [showScorePoints, setShowScorePoints] = useState(false)
 
   const asksAndAnswers: { ask: string; answer: string[] }[] = [
     {
@@ -67,16 +67,25 @@ const AnswerComponent = () => {
     }
   }
 
+  const handleScore = () => {
+    setShowScorePoints(showScorePoints)
+  }
+  function shouldShowScore() {
+    if (questionIndex === 5) {
+      handleScore
+    }
+  }
+
   useEffect(() => {
     setAsk(asksAndAnswers[questionIndex].ask)
-  }, [questionIndex])
-
-  useEffect(() => {
     setAnswers(asksAndAnswers[questionIndex].answer)
+    shouldShowScore()
   }, [questionIndex])
 
+  console.log(showScorePoints)
 
-  console.log(scorePoints)
+
+
 
   return (
     <motion.div
@@ -85,15 +94,23 @@ const AnswerComponent = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 1 }}
     >
-      <div className="card card-quiz">
-        <h2 className="quizTitle">{ask}</h2>
-        <main className="quiz">
-          <button onClick={answerTheQuestion} className="answer">{answers[0]}</button>
-          <button onClick={answerTheQuestion} className="answer">{answers[1]}</button>
-          <button onClick={answerTheQuestion} className="answer">{answers[2]}</button>
-          <button onClick={answerTheQuestion} className="answer">{answers[3]}</button>
-        </main>
-      </div>
+      {showScorePoints
+        ?
+        <div className="card card-quiz">
+          <h2 className="quizTitle">Your score is: </h2>
+          <main className="score"><h1>{scorePoints}</h1></main>
+        </div>
+        :
+        <div className="card card-quiz">
+          <h2 className="quizTitle">{ask}</h2>
+          <main className="quiz">
+            <button onClick={answerTheQuestion} className="answer">{answers[0]}</button>
+            <button onClick={answerTheQuestion} className="answer">{answers[1]}</button>
+            <button onClick={answerTheQuestion} className="answer">{answers[2]}</button>
+            <button onClick={answerTheQuestion} value="finish" className="answer">{answers[3]}</button>
+          </main>
+        </div>
+      }
     </motion.div>
   );
 };
