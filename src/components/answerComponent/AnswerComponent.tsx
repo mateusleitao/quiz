@@ -49,6 +49,15 @@ const AnswerComponent = () => {
         "D - Creative Styling Sheet",
       ],
     },
+    {
+      ask: "0",
+      answer: [
+        "a",
+        "b",
+        "c",
+        "d",
+      ]
+    }
   ];
 
   function answerTheQuestion(e: React.MouseEvent<HTMLElement>) {
@@ -67,14 +76,12 @@ const AnswerComponent = () => {
     }
   }
 
-  const handleScore = () => {
-    setShowScorePoints(showScorePoints)
-  }
   function shouldShowScore() {
-    if (questionIndex === 5) {
-      handleScore
+    if (questionIndex == 5) {
+      setShowScorePoints(true)
     }
   }
+  console.log(questionIndex)
 
   useEffect(() => {
     setAsk(asksAndAnswers[questionIndex].ask)
@@ -82,7 +89,7 @@ const AnswerComponent = () => {
     shouldShowScore()
   }, [questionIndex])
 
-  console.log(showScorePoints)
+
 
 
 
@@ -99,6 +106,8 @@ const AnswerComponent = () => {
         <div className="card card-quiz">
           <h2 className="quizTitle">Your score is: </h2>
           <main className="score"><h1>{scorePoints}</h1></main>
+          <button onClick={() => { setScorePoints(0), setQuestionIndex(0), setShowScorePoints(false) }}>Answer again</button>
+
         </div>
         :
         <div className="card card-quiz">
