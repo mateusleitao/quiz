@@ -20,7 +20,7 @@ const Quiz = (props: Props) => {
           <img src={cardImg} alt="cardImage" width="900px" />
           <h2 className="cardTitle">Web Development</h2>
           <p></p>
-          <Link to="/quiz" className="answerButton">Answer</Link>
+          <Link to="/quiz/answer" className="answerButton">Answer</Link>
         </div>
         <div>
         </div>
