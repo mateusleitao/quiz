@@ -18,8 +18,8 @@ const Animation = (props: Props) => {
   return (
     <AnimatePresence>
       <Routes location={location} key={location.pathname}>
-        <Route path="/quiz" element={<Home />}></Route>
-        <Route path="/quiz/b" element={<Answer />}></Route>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/quiz" element={<Answer />}></Route>
       </Routes>
     </AnimatePresence>
   );

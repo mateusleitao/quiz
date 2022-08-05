@@ -10,11 +10,11 @@ import { BrowserRouter as Router, Route, Routes, Link, useLocation } from "react
 function App() {
   return (
     <>
-    <Header />
-    <Animation />  
-    <Footer />
+      <Header />
+      <Animation />
+      <Footer />
     </>
-);
+  );
 }
 
 export default App;
